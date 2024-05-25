@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Simples</title>
+</head>
+<body>
+    <h1>Formulário</h1>
+    <form id="myForm">
+        <label for="address">Endereço:</label>
+        <input type="text" id="address" name="address" ><button onclick="getLocation()">Local atual</button><br><br>
+        <label for="caract">Caracteristicas do Pet</label>
+        <input type="text" id="caract" name="caract"><br><br>
+        <label for="situacao">Situação do Pet:  </label>
+        <select id="situacao" name="situacao">
+            <option value="opção 1">opção 1</option>
+            <option value="opção 2">opção 2</option>
+            <option value="opção 3">opção 3</option>
+            <option value="opção 4">opção 4</option>
+          </select><br><br>
+
+
+        <button type="button" onclick="submitForm()">Enviar</button>
+    </form>
+
+    <h2>Dados Salvos</h2>
+    <pre id="savedData"></pre>
+    <button onclick="clearData()"></button>
+    <script src="./code/permission.js"></script>
+    <script>
+        function submitForm() {
+            
+
+            const formData = {
+                address: document.getElementById('address').value,
+                situation: document.getElementById('situacao').value,
+                caracteristicas: document.getElementById('caract').value,
+
+            };
+            
+            // Obtém os dados existentes no localStorage
+            let data = JSON.parse(localStorage.getItem('formData')) || [];
+            
+            // Adiciona os novos dados
+            data.push(formData);
+            
+            // Salva os dados atualizados no localStorage
+            localStorage.setItem('formData', JSON.stringify(data));
+            
+            // Exibe os dados salvos
+            displaySavedData();
+            
+            //alert('Formulário enviado com sucesso!');
+        }
+        function getLocation(){
+            
+        }
+        function displaySavedData() {
+            const savedData = JSON.parse(localStorage.getItem('formData')) || [];
+            document.getElementById('savedData').textContent = JSON.stringify(savedData, null, 2);
+        }
+        function clearData() {
+            // Limpa os dados do localStorage
+            localStorage.removeItem('formData');
+            
+            // Atualiza a exibição dos dados
+            displaySavedData();
+            
+            //alert('Todos os dados foram apagados!');
+        }
+        // Exibe os dados salvos quando a página é carregada
+        window.onload = displaySavedData;
+    </script>
+
+    <a href="./index.html">vá para otra guia</a>
+</body>
+</html>

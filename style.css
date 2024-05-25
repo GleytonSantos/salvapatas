@@ -1,0 +1,11 @@
+body {
+background-color: rgba(237, 240, 245, 0.753);
+}
+
+#map {
+    height: 500px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
