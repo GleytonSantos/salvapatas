@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>Mapa com Raio de Visualização</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
@@ -12,9 +17,87 @@
 
 </head>
 <body>
-    <script src="https://unpkg.com/@turf/turf@6.3.0/turf.min.js"></script>
-    <div id="map"></div>
-    <a href="./FormResgate.html">vá para otra guia</a>
+    <header>
+        <div class="user-icon">
+            <img src="./src/img/user.png" alt="Ícon">
+        </div>
+        <div class="logo">
+            <img src="./src/img/appIconNav.png" alt="Logo">
+        </div>
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div id="map" class="full-height"></div>
+
+    <footer>
+        <button class="footer-button">
+            <img src="./src/img/heart.png" alt="Ícone 1">
+        </button>
+        <button class="footer-button">
+            <img src="./src/img/dog.png" alt="Ícone 2">
+        </button>
+        <button class="footer-button" id="menuButton">
+            <img src="./src/img/appIcon.png" alt="Ícone 3">
+        </button>
+        <div class="floating-menu" id="floatingMenu">
+            <div><h4>Qual o tipo de socorro?</h4></div>
+            <div class="container">
+
+                <a href="page1.html"><div class="float-menu-option">
+                    <img src="./src/img/bx_health.png" alt="resgate">
+               
+                <p>resgate</p>
+            </div> </a>
+            <a href="page2.html"><div class="float-menu-option">
+                    <img src="./src/img/solar_heart-bold.png" alt="adoçao">
+                    <p>adoçao</p></div>
+                </a>
+            
+                
+                <a href="./FormResgate.html"> <div class="float-menu-option">
+                    <img src="./src/img/ic_round-crisis-alert.png" alt="Avisar">
+              
+                <p>Avisar</p></div>
+            </div>  </a>
+
+        </div>
+        <button class="footer-button">
+            <img src="./src/img/box.png" alt="Ícone 4">     
+        </button>
+        <button class="footer-button">
+            <img src="./src/img/loja.png" alt="Ícone 5">
+        </button>
+    </footer>
+
+    <script>
+        document.getElementById('menuButton').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('floatingMenu').classList.toggle('active');
+        });
+
+        // Fecha o menu flutuante quando clicar fora dele
+        document.addEventListener('click', function(event) {
+            var floatingMenu = document.getElementById('floatingMenu');
+            var menuButton = document.getElementById('menuButton');
+            
+            // Verifica se o clique ocorreu fora do menu flutuante e do botão que abre o menu
+            if (!floatingMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                // Fecha o menu flutuante se estiver aberto
+                if (floatingMenu.classList.contains('active')) {
+                    floatingMenu.classList.remove('active');
+                    menuButton.classList.remove('active');
+                }
+            }
+        });
+
+    </script>
+
+
+  
+    <!-- <a href="./FormResgate.html">vá para otra guia</a> -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
     
