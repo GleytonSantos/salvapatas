@@ -1,11 +1,157 @@
-body {
-background-color: rgba(237, 240, 245, 0.753);
+
+
+
+   /* Estilos básicos */
+   html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins';
+    overflow: hidden; /* Impede a barra de rolagem */
 }
 
 #map {
-    height: 500px;
-    width: 50%;
+    height: calc(100vh - 150px); /* 40px é a altura do cabeçalho, ajuste conforme necessário */
+}
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px 20px;
+    background-color: #248232;
+    color: #fff;
+    
+    height: 30px;
+}
+
+.user-icon, .menu-icon {
+    cursor: pointer;
+}
+
+.user-icon img, .menu-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+}
+
+.menu-icon div {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+.full-height {
+    flex-grow: 1;
+    background-color: #f0f0f0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    color: #fff;
+    border: 2px solid #248232;
+    border-radius: 20px 20px 0 0 ;
+    position: relative;
+}
+
+.footer-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.footer-button img {
+    width: 60px;
+    height: 60px;
+}
+
+.floating-menu {
+    position: absolute;
+    bottom: 87px; /* Distância do menu flutuante ao fundo */
+    left: 50%;
+    height: 140px;
+    width: 100%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000000;
+    padding: 10px;
+    
+    border: 2px  solid #248232;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Coloca o menu flutuante acima do mapa */
+    display: none; /* Inicialmente oculto */
+}
+
+.floating-menu button {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #020202;
+    margin: 5px 0;
+}
+
+.floating-menu button img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-button.active + .floating-menu {
+    display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+}
+.container a {
+    text-decoration: none;
+}
+.float-menu-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    color: #000000;
+    border: 2px solid #248232;
+    border-radius: 10px ;
+    padding: 5px 15px;
+}
+
+.float-menu-option a {
+    text-decoration: none;
+    color: #000000;
+    
+}
+
+.float-menu-option img {
+    width: 50px;
+    height: 50px;
+}
+
+.float-menu-option p {
+    margin: 5px 0 0;
+    font-size: 12px;
 }
