@@ -9,6 +9,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Coordenadas do centro do raio
 
 const arrCenter = [[-14.855849, -40.841776],[-14.863657, -40.835522]]
+var coords = getCoords()
 // Raio em metros
 var markers = L.markerClusterGroup({
     iconCreateFunction: function(cluster) {
@@ -42,29 +43,8 @@ var markers = L.markerClusterGroup({
     }
 });
 var radius = 150
-// Adicionar um círculo e marcador para cada coordenada
-// arrCenter.forEach(function(coord) {
-//     var circle = L.circle(coord, {
-//         color: '#0b07ff',
-//         fillColor: '#0b07ff',
-//         fillOpacity: 0.3,
-//         radius: radius+15
-//     });
 
-//     // Adicionar um ícone dentro do círculo
-//     var icon = L.icon({
-//         iconUrl: './src/img/pataIcon.png', // URL da imagem do ícone
-//         iconSize: [32, 32], // Tamanho do ícone
-//         iconAnchor: [16, 16] // Ponto de ancoragem do ícone
-//     });
 
-//     var marker = L.marker(coord, { icon: icon });
-
-//     // Adicionar o círculo e o marcador ao cluster
-//     var layerGroup = L.layerGroup([circle, marker]);
-//     //markers.addLayer(circle);
-//     markers.addLayer(layerGroup);
-// });
 
 arrCenter.forEach(function(coord) {
     // Criar um divIcon combinando círculo e marcador
@@ -90,19 +70,16 @@ map.addLayer(markers);
 
 
 
-//for(i=0;i<=center.length;i++)
-// Alternativamente, usar Turf.js para criar o círculo (opcional)
-// var turfCircle = turf.circle(center, 2.3, { // radius em km para o Turf.js
-//     steps: 64,
-//     units: 'kilometers'
-// });
 
-// // Converter para camada do Leaflet (opcional)
-// var geojsonLayer = L.geoJSON(turfCircle, {
-//     style: {
-//         color: 'blue',
-//         fillColor: '#30f',
-//         fillOpacity: 0.3
-//     }
-// }).addTo(map);
-
+function getCoords(){
+    const savedData = JSON.parse(localStorage.getItem('formData')) || [];
+    
+    
+    var arr = []
+    for(i=0;i<=savedData.length-1;i++){
+        
+        arr.push([savedData[0].latitude,savedData[0].longitude])
+    }
+    console.log(arr)
+    return arr
+}

@@ -19,9 +19,10 @@
             <option value="opção 3">opção 3</option>
             <option value="opção 4">opção 4</option>
           </select><br><br>
-        <label for="image"></label>
+        <label for="image">Envie uma imagem: </label>
         <input type="file" name="image" id="imageformResgate"><br><br>
-
+          <input type="text" name="coords" id="latitude" style="display: none;">
+          <input type="text" name="coords" id="longitude" style="display: none;">
 
         <button type="button" onclick="submitForm()">Enviar</button>
     </form>
@@ -29,8 +30,7 @@
     <h2>Dados Salvos</h2>
     <pre id="savedData"></pre>
     <button onclick="clearData()"></button>
-    <script src="./code/permission.js"></script>
-    =<script src="./code/form.js"></script>
+    <script src="./code/form.js"></script>
 
     <a href="./index.html">vá para otra guia</a>
 </body>
