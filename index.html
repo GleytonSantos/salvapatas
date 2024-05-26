@@ -12,9 +12,71 @@
 
 </head>
 <body>
+    <header>
+        <div class="user-icon">
+            <img src="user-icon.png" alt="Ícon">
+        </div>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div id="map" class="full-height"></div>
+
+    <footer>
+        <button class="footer-button">
+            <img src="icon1.png" alt="Ícone 1">
+        </button>
+        <button class="footer-button">
+            <img src="icon2.png" alt="Ícone 2">
+        </button>
+        <button class="footer-button" id="menuButton">
+            <img src="icon3.png" alt="Ícone 3">
+        </button>
+        <div class="floating-menu" id="floatingMenu">
+            <a href="page1.html">
+                <img src="option1.png" alt="Opção 1">
+            </a>
+            <a href="page2.html">
+                <img src="option2.png" alt="Opção 2">
+            </a>
+            <a href="page3.html">
+                <img src="option3.png" alt="Opção 3">
+            </a>
+        </div>
+        <button class="footer-button">
+            <img src="icon4.png" alt="Ícone 4">
+        </button>
+        <button class="footer-button">
+            <img src="icon5.png" alt="Ícone 5">
+        </button>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(event) {
+            var floatingMenu = document.getElementById('floatingMenu');
+            var menuButton = document.getElementById('menuButton');
+                    
+            // Verifica se o clique ocorreu fora do menu flutuante e do botão que abre o menu
+            if (!floatingMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                // Fecha o menu flutuante se estiver aberto
+                if (floatingMenu.classList.contains('active')) {
+                    floatingMenu.classList.remove('active');
+                    menuButton.classList.remove('active');
+                }
+            }
+        });    
+    </script>
+
+
+
     <script src="https://unpkg.com/@turf/turf@6.3.0/turf.min.js"></script>
-    <div id="map"></div>
-    <a href="./FormResgate.html">vá para otra guia</a>
+  
+    <!-- <a href="./FormResgate.html">vá para otra guia</a> -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
     
