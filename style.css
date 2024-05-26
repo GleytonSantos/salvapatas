@@ -5,11 +5,12 @@
    html, body {
     height: 100%;
     margin: 0;
+    font-family: 'Poppins';
     overflow: hidden; /* Impede a barra de rolagem */
 }
 
 #map {
-    height: calc(100vh - 100px); /* 40px é a altura do cabeçalho, ajuste conforme necessário */
+    height: calc(100vh - 150px); /* 40px é a altura do cabeçalho, ajuste conforme necessário */
 }
 header {
     display: flex;
@@ -18,6 +19,8 @@ header {
     padding: 20px 20px;
     background-color: #248232;
     color: #fff;
+    
+    height: 30px;
 }
 
 .user-icon, .menu-icon {
@@ -25,8 +28,8 @@ header {
 }
 
 .user-icon img, .menu-icon img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 .logo {
@@ -62,8 +65,10 @@ footer {
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
-    background-color: #333;
+    background-color: #ffffff;
     color: #fff;
+    border: 2px solid #248232;
+    border-radius: 20px 20px 0 0 ;
     position: relative;
 }
 
@@ -75,18 +80,23 @@ footer {
 }
 
 .footer-button img {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
 }
 
 .floating-menu {
     position: absolute;
-    bottom: 10px; /* Distância do menu flutuante ao fundo */
+    bottom: 87px; /* Distância do menu flutuante ao fundo */
     left: 50%;
+    height: 140px;
+    width: 100%;
     transform: translateX(-50%);
     background-color: #fff;
+    color: #000000;
     padding: 10px;
-    border-radius: 5px;
+    
+    border: 2px  solid #248232;
+    border-radius: 40px 40px 0 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000; /* Coloca o menu flutuante acima do mapa */
     display: none; /* Inicialmente oculto */
@@ -97,7 +107,7 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
-    color: #fff;
+    color: #020202;
     margin: 5px 0;
 }
 
@@ -108,4 +118,40 @@ footer {
 
 .footer-button.active + .floating-menu {
     display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+}
+.container a {
+    text-decoration: none;
+}
+.float-menu-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    color: #000000;
+    border: 2px solid #248232;
+    border-radius: 10px ;
+    padding: 5px 15px;
+}
+
+.float-menu-option a {
+    text-decoration: none;
+    color: #000000;
+    
+}
+
+.float-menu-option img {
+    width: 50px;
+    height: 50px;
+}
+
+.float-menu-option p {
+    margin: 5px 0 0;
+    font-size: 12px;
 }
